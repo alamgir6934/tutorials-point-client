@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
     return (
         <div>
+
             <div className="hero min-h-screen bg-base-200">
+
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-center md:flex-row-reverse">
                         <h1 className="text-5xl font-bold">Login now!</h1>
-
-                        <div className='md:flex-row-reverse'>
-                            <button className="btn btn-primary">Log in with google</button>
-                            <button className="btn btn-primary">Log in with Github.</button>
-                        </div>
+                        <button className="btn btn-wide d-flex"> <FaGoogle></FaGoogle> Log in with google</button>
+                        <button className="btn btn-primary d-flex ml-8"> <FaGithub></FaGithub> Log in with Github.</button>
 
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
