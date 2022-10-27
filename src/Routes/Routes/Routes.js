@@ -17,7 +17,7 @@ export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
-        errorElement: <ErrorPage></ErrorPage>,
+        // element: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -31,19 +31,19 @@ export const routes = createBrowserRouter([
             {
                 path: '/course',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/books')
+                loader: () => fetch('https://toturials-point.vercel.app/books')
 
             },
             {
                 path: '/catagory/:id',
                 element: <Catagory></Catagory>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://toturials-point.vercel.app/category/${params.id}`)
 
             },
             {
                 path: '/books/:id',
                 element: <PrivateRoute><Books></Books></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
+                loader: ({ params }) => fetch(`https://toturials-point.vercel.app/books/${params.id}`)
             },
             {
                 path: '/blog',
