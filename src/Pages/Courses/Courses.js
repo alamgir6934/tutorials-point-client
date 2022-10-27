@@ -9,11 +9,11 @@ const Courses = () => {
     console.log(allCourse)
     return (
 
-        <div className='d-flex'>
+        <div className='d-flex flex-wrap'>
             <div>
                 <LeftSideNav></LeftSideNav>
             </div>
-            <div className="grid grid-cols-2 gap-4 ml-28">
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 lg:ml-28 ml-12">
                 {
                     allCourse.map(books => <CourseSummaryCart
                         key={books._id}

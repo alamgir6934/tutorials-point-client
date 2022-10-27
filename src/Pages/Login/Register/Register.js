@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Register = () => {
     return (
-        <div>
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 object-center">
+        <div className=''>
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100  lg:ml-80 ml-12">
                 <div className="card-body">
                     <div className="form-control">
                         <label className="label">

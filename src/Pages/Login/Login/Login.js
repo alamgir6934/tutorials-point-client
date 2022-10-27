@@ -1,8 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { FaGoogle, FaGithub, FaCommentsDollar } from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
+    const { providerLogin, gitProviderLogin } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
+    }
+
+    const handleGithubSignIn = () => {
+        gitProviderLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
+
+    }
+
+
+
     return (
         <div>
 
@@ -11,8 +41,8 @@ const Login = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-center md:flex-row-reverse">
                         <h1 className="text-5xl font-bold">Login now!</h1>
-                        <button className="btn btn-wide d-flex"> <FaGoogle></FaGoogle> Log in with google</button>
-                        <button className="btn btn-primary d-flex ml-8"> <FaGithub></FaGithub> Log in with Github.</button>
+                        <button onClick={handleGoogleSignIn} className="btn btn-wide d-flex"> <FaGoogle></FaGoogle> Log in with google</button>
+                        <button onClick={handleGithubSignIn} className="btn btn-primary d-flex ml-8"> <FaGithub></FaGithub> Log in with Github.</button>
 
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
