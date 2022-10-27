@@ -4,6 +4,7 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import Books from "../../Pages/Books/Books";
 import Catagory from "../../Pages/Catagory/Catagory";
 import Courses from "../../Pages/Courses/Courses";
+import EnrollmentPage from "../../Pages/EnrollmentPage/EnrollmentPage";
 import Faq from "../../Pages/Faq/Faq";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
@@ -57,6 +58,10 @@ export const routes = createBrowserRouter([
                 path: '',
                 element: <RightSideNav></RightSideNav>,
 
+            },
+            {
+                path: '/enroll/:id',
+                element: <EnrollmentPage></EnrollmentPage>
             }
         ]
     }

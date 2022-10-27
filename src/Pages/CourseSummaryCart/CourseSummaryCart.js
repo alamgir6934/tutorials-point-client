@@ -20,7 +20,10 @@ const CourseSummaryCart = ({ books }) => {
                             <>{details}</>
                     }
                     <div className="card-actions">
-                        <button className="btn btn-primary">Course Details</button>
+
+
+
+                        <button className="btn btn-primary text-rose-500"><Link className='text-rose-500' to={`/books/${_id}`}>Details</Link></button>
                         <button className="btn btn-primary">Premium</button>
                     </div>
                 </div>

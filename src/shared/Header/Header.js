@@ -1,16 +1,25 @@
 import React from 'react';
 import { useContext } from 'react';
+import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import image from '../Header/image/img.jpg'
 
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div className="navbar d-flex align-items:center bg-amber-100">
 
@@ -38,13 +47,34 @@ const Header = () => {
                     <Link to='/course'><button>Course</button></Link>
                     <Link to='/faq'><button>FAQ</button></Link>
                     <Link to='/blog'><button>Blogs</button></Link>
-                    <Link to='/login'><button>Log in</button></Link>
-                    <Link to='/register'><button>SignUp</button></Link>
-                    <Link to=''>{user?.displayName}</Link>
+                    {
+                        user?.uid ?
+                            <>
+                                <span>{user?.displayName}</span>
+                                <Button className='' onClick={handleLogOut} variant="light">Sign Out</Button>
+                            </>
+                            :
+                            <>
+                                <Button variant="light"><Link to='/login'>Login</Link></Button>
+                                <Button variant="light"><Link to='/register'>Register</Link></Button>
+
+                            </>
+
+                    }
+                    <Link to="/profile">
+                        {
+                            user?.photoURL ?
+                                < Image style={{ height: '30px' }}
+                                    roundedCircle src={user?.photoURL}></Image>
+                                :
+                                <FaUser></FaUser>
+
+                        }
+                    </Link>
                 </ul>
             </div>
             <>
-                <Link className="btn">Sign Out</Link>
+                {/* <Button className='lg:hidden' onClick={handleLogOut} variant="light">Sign Out</Button> */}
             </>
         </div>
 

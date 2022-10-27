@@ -18,7 +18,7 @@ const Books = () => {
                     <p>{details}</p>
                     <div className="card-actions">
                         <Link to={`/catagory/${category_id}`}>
-                            <button className="btn btn-primary">Buy Now</button>
+                            <button className="btn btn-primary">Add More</button>
                         </Link>
                     </div>
                 </div>

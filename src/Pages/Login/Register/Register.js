@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Register = () => {
+    const [error, setError] = useState('');
+    const { createUser } = useContext(AuthContext)
+    const handleSubmit = (event) => {
+
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, email, password);
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                form.reset();
+                setError('')
+
+
+            })
+            .catch(e => {
+
+                console.error(e)
+                setError(e.message)
+
+            })
+    }
+
     return (
-        <div className=''>
+
+        <form onSubmit={handleSubmit}>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100  lg:ml-80 ml-12">
                 <div className="card-body">
                     <div className="form-control">
@@ -30,7 +61,8 @@ const Register = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
+
     );
 };
 
