@@ -5,6 +5,7 @@ import Books from "../../Pages/Books/Books";
 import Catagory from "../../Pages/Catagory/Catagory";
 import Courses from "../../Pages/Courses/Courses";
 import EnrollmentPage from "../../Pages/EnrollmentPage/EnrollmentPage";
+import ErrorPage from "../../Pages/Error/ErrorPage";
 import Faq from "../../Pages/Faq/Faq";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
@@ -16,7 +17,12 @@ export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
 
             {
                 path: '/home',

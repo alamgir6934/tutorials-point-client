@@ -49,7 +49,7 @@ const Login = () => {
                 form.reset();
                 SetError('')
                 Navigate('/')
-                toast("Wow so easy !")
+                // toast("Wow so easy !")
                 // <ToastContainer/>
                 // if (user.emailVerified) {
                 //     navigate(from, { replace: true });
@@ -60,7 +60,7 @@ const Login = () => {
             .catch(error => {
                 console.error(error)
                 SetError(error.message)
-                toast.error('try again')
+                // toast.error('try again')
 
             })
     }
@@ -76,7 +76,7 @@ const Login = () => {
 
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <h4>{error}</h4>
+                    {/* <h4>{error}</h4> */}
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control">
