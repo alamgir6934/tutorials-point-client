@@ -76,7 +76,7 @@ const Login = () => {
 
                 </div>
                 <form onSubmit={handleSubmit}>
-                    {/* <h4>{error}</h4> */}
+                    <h4>{error}</h4>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control">
